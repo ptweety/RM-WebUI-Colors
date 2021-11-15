@@ -1,0 +1,25 @@
+{
+  "name": "rm-webui-colors",
+  "version": "1.0.0",
+  "description": "Preview of homematic webui with bootstrap and custom color scheme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ptweety/RM-WebUI-Colors.git"
+  },
+  "author": "ptweety",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ptweety/RM-WebUI-Colors/issues"
+  },
+  "homepage": "https://github.com/ptweety/RM-WebUI-Colors#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  },
+  "devDependencies": {
+    "sass": "^1.43.4"
+  }
+}

@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# additional index files
+index*.html
