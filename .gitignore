@@ -104,4 +104,4 @@ dist
 .tern-port
 
 # additional index files
-index*.html
+index?.html

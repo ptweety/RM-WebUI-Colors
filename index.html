@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/main.min.css" />
+    <!-- Test with original webui styles (minor fixed included) -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        #content {
+            min-height: 0;
+        }
+
+        #contentLeft,
+        #contentRight {
+            overflow-y: auto;
+        }
+
+        .footer {
+            min-height: 47px;
+        }
+    </style>
+</head>
+
+<body class="overflow-hidden">
+    <div id="LayerContainer" class="container-fluid vh-100 d-flex flex-column">
+        <div id="Layer0"></div>
+        <header id="header" class="row flex-shrink-0 border-bottom border-5">
+            <div class="col-12 p-0 m-0">
+                <nav id="menubar" class="navbar navbar-expand-lg navbar-dark bg-primary">
+                    <div class="container-fluid justify-content-lg-around">
+                        <a class="navbar-brand" href="#">
+                            <img src="assets/rm-logo_small_red.png" class="me-2" height="37" alt="RaspberryMatic"
+                                loading="lazy" />
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target=".mainNavbar" aria-controls="navbarCollapse1 navbarCollapse2"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse flex-basis-md-0 mainNavbar" id="navbarCollapse1">
+                            <ul class="navbar-nav mb-2 mb-md-0 mx-md-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Startseite</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Status und Bedienung</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Programme und Verknüpfungen</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Einstellungen</a>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav mb-2 mb-md-0 mx-md-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Geräte anlernen</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Hilfe</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="collapse navbar-collapse flex-basis-md-0 align-self-start align-self-md-center mainNavbar order-md-2"
+                            id="navbarCollapse2">
+                            <ul class="navbar-nav mb-2 mb-md-0 ms-md-auto">
+                                <li class="nav-item me-3 me-lg-1">
+                                    <!-- <a class="nav-link" href="#">Alarmmeldungen</a> -->
+                                    <a class="nav-link" href="#" title="Alarmmeldungen"><span
+                                            class="badge bg-danger">1</span><i class="ps-1 fas fa-bell"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <!-- <a class="nav-link" href="#">Servicemeldungen</a> -->
+                                    <a class="nav-link" href="#" title="Servicemeldungen"><span
+                                            class="badge bg-success">0</span><i class="ps-1 fas fa-wrench"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" title="Änderungen speichern"><i
+                                            class="fas fa-save"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" title="Abmelden"><i
+                                            class="fas fa-sign-out-alt"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <main id="content" class="row flex-grow-1">
+            <div id="contentLeft" class="col-7 h-100 d-flex flex-column border-end border-5">
+                <h4 class="text-muted">Left Content</h4>
+            </div>
+            <div id="contentRight" class="col-5 mh-100">
+                <table id="tblRightContent" width="100%" style="padding-right: 10px;">
+                    <tbody>
+                        <tr style="vertical-align: top;" class="CLASS01810">
+                            <td>
+                                <table id="tblStartpageInfo" width="100%" class="CLASS01811 startPageInfo hidden"
+                                    cellpadding="2" cellspacing="0" style="display: table;">
+                                    <colgroup>
+                                        <col style="width:30%;">
+                                        <col>
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <!-- Uhrzeit -->
+                                            <td>Datum / Uhrzeit:</td>
+                                            <td><span id="maintime">11.11.2021, 11:11</span> Uhr</td>
+                                        </tr>
+                                        <tr>
+                                            <!-- Sonnenaufgang -->
+                                            <td>Astro-Tageszeit:</td>
+                                            <td id="sunrise">07:30 - 16:10 Uhr</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Aktuelle Firmwareversion:</td>
+                                            <!-- <td id="currentFirmware">${lblCurrentFirmwareVersionNotKnown}</td> -->
+                                            <td><span id="currentFirmware">3.61.5.20211009</span><span id="updateCol"
+                                                    class="firmwareAvailable">
+                                                    (3.61.5.20211113 verfügbar)</span></td>
+                                        </tr>
+                                        <!-- Device-Firmware -->
+                                        <tr id="devFwAvailable" class="hidden">
+                                            <td>Geräte-Update:</td>
+                                            <td class="firmwareAvailable">Neue Geräte-Firmware verfügbar&nbsp;<span
+                                                    id="devFwAvailableCounter"></span></td>
+                                        </tr>
+                                        <!-- Addons -->
+                                        <tr id="addonUpdatesAvailable" class="hidden">
+                                            <td>Zusatzsoftware-Updates:</td>
+                                            <td class="firmwareAvailable">Neue Zusatzsoftware verfügbar&nbsp;<span
+                                                    id="addonUpdatesAvailableCounter"></span>
+                                            </td>
+                                        </tr>
+                                        <!-- DutyCycle -->
+                                        <tr>
+                                            <td colspan="3">
+                                                <hr>
+                                            </td>
+                                        </tr>
+                                        <tr id="partingLine1" class="hidden">
+                                            <td></td>
+                                            <td>
+                                                <table style="width:100%;text-align:center;font-size:11px;"
+                                                    cellpadding="0" cellspacing="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style="width:70%;">Duty Cycle</td>
+                                                            <td style="width:30%;">Carrier Sense</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr name="trDutyCycle0" style="display: table-row;">
+                                            <td id="dutyCycleAddr0" style="vertical-align: top;text-align: left;">CCU:
+                                            </td>
+                                            <td>
+                                                <table style="width:100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td id="hmBootstrap"
+                                                                style="width:70%;margin-right: 0px;padding-right: 0px;">
+                                                                <div class="progress">
+                                                                    <div name="dutyCycleBar0"
+                                                                        class="progress-bar bg-success"
+                                                                        role="progressbar" aria-valuenow="11"
+                                                                        aria-valuemin="0" aria-valuemax="100"
+                                                                        style="width: 11%;"><span id="dutyCycleVal0">11
+                                                                            %</span></div>
+                                                                </div>
+                                                            </td>
+                                                            <td id="hmBootstrap" style="width:30%">
+                                                                <div class="progress" name="carrierSenseCol0">
+                                                                    <div name="carrierSenseBar0"
+                                                                        class="progress-bar bg-info" role="progressbar"
+                                                                        aria-valuenow="22" aria-valuemin="0"
+                                                                        aria-valuemax="100" style="width: 22%;"><span
+                                                                            id="carrierSenseVal0">22 %</span></div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr name="trDutyCycle1" style="display: table-row;">
+                                            <td id="dutyCycleAddr1" style="vertical-align: top;text-align: left;">Something
+                                            </td>
+                                            <td>
+                                                <table style="width:100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td id="hmBootstrap"
+                                                                style="width:70%;margin-right: 0px;padding-right: 0px;">
+                                                                <div class="progress">
+                                                                    <div name="dutyCycleBar1" class="progress-bar bg-danger"
+                                                                        role="progressbar" aria-valuenow="80"
+                                                                        aria-valuemin="0" aria-valuemax="100"
+                                                                        style="width:80%"><span
+                                                                            id="dutyCycleVal1">80 %</span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td id="hmBootstrap" style="width:30%">
+                                                                <div class="progress" name="carrierSenseCol1">
+                                                                    <div name="carrierSenseBar1"
+                                                                        class="progress-bar bg-warning" role="progressbar"
+                                                                        aria-valuenow="50" aria-valuemin="0"
+                                                                        aria-valuemax="100" style="width:50%"><span
+                                                                            id="carrierSenseVal1">50 %</span></div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr name="trDutyCycle2" style="display: none">
+                                            <td id="dutyCycleAddr2" style="vertical-align: top;text-align: left;">
+                                            </td>
+                                            <td>
+                                                <table style="width:100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td id="hmBootstrap"
+                                                                style="width:70%;margin-right: 0px;padding-right: 0px;">
+                                                                <div class="progress">
+                                                                    <div name="dutyCycleBar2" class="progress-bar"
+                                                                        role="progressbar" aria-valuenow="0"
+                                                                        aria-valuemin="0" aria-valuemax="100"
+                                                                        style="width:0%"><span
+                                                                            id="dutyCycleVal2"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td id="hmBootstrap" style="width:30%">
+                                                                <div class="progress" name="carrierSenseCol2">
+                                                                    <div name="carrierSenseBar2"
+                                                                        class="progress-bar bg-info" role="progressbar"
+                                                                        aria-valuenow="0" aria-valuemin="0"
+                                                                        aria-valuemax="100" style="width:0%"><span
+                                                                            id="carrierSenseVal2"></span></div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr name="trDutyCycle3" style="display: none">
+                                            <td id="dutyCycleAddr3" style="vertical-align: top;text-align: left;">
+                                            </td>
+                                            <td>
+                                                <table style="width:100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td id="hmBootstrap"
+                                                                style="width:70%;margin-right: 0px;padding-right: 0px;">
+                                                                <div class="progress">
+                                                                    <div name="dutyCycleBar3" class="progress-bar"
+                                                                        role="progressbar" aria-valuenow="0"
+                                                                        aria-valuemin="0" aria-valuemax="100"
+                                                                        style="width:0%"><span
+                                                                            id="dutyCycleVal3"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td id="hmBootstrap" style="width:30%">
+                                                                <div class="progress" name="carrierSenseCol3">
+                                                                    <div name="carrierSenseBar3"
+                                                                        class="progress-bar bg-info" role="progressbar"
+                                                                        aria-valuenow="0" aria-valuemin="0"
+                                                                        aria-valuemax="100" style="width:0%"><span
+                                                                            id="carrierSenseVal3"></span></div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr name="trDutyCycle4" style="display: none">
+                                            <td id="dutyCycleAddr4" style="vertical-align: top;text-align: left;">
+                                            </td>
+                                            <td>
+                                                <table style="width:100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td id="hmBootstrap"
+                                                                style="width:70%;margin-right: 0px;padding-right: 0px;">
+                                                                <div class="progress">
+                                                                    <div name="dutyCycleBar4" class="progress-bar"
+                                                                        role="progressbar" aria-valuenow="0"
+                                                                        aria-valuemin="0" aria-valuemax="100"
+                                                                        style="width:0%"><span
+                                                                            id="dutyCycleVal4"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td id="hmBootstrap" style="width:30%">
+                                                                <div class="progress" name="carrierSenseCol4">
+                                                                    <div name="carrierSenseBar4"
+                                                                        class="progress-bar bg-info" role="progressbar"
+                                                                        aria-valuenow="0" aria-valuemin="0"
+                                                                        aria-valuemax="100" style="width:0%"><span
+                                                                            id="carrierSenseVal4"></span></div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <footer id="footer" class="row flex-shrink-0 footer text-white bg-primary border-top border-5">
+            <div class="col-12">Footer</div>
+        </footer>
+    </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
